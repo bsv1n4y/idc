@@ -1,0 +1,2 @@
+# idc
+Investment Decision Calculator
