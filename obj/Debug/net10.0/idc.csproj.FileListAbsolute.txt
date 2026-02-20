@@ -1,0 +1,15 @@
+/home/vinay/Projects/idc/bin/Debug/net10.0/idc
+/home/vinay/Projects/idc/bin/Debug/net10.0/idc.deps.json
+/home/vinay/Projects/idc/bin/Debug/net10.0/idc.runtimeconfig.json
+/home/vinay/Projects/idc/bin/Debug/net10.0/idc.dll
+/home/vinay/Projects/idc/bin/Debug/net10.0/idc.pdb
+/home/vinay/Projects/idc/obj/Debug/net10.0/idc.GeneratedMSBuildEditorConfig.editorconfig
+/home/vinay/Projects/idc/obj/Debug/net10.0/idc.AssemblyInfoInputs.cache
+/home/vinay/Projects/idc/obj/Debug/net10.0/idc.AssemblyInfo.cs
+/home/vinay/Projects/idc/obj/Debug/net10.0/idc.csproj.CoreCompileInputs.cache
+/home/vinay/Projects/idc/obj/Debug/net10.0/idc.sourcelink.json
+/home/vinay/Projects/idc/obj/Debug/net10.0/idc.dll
+/home/vinay/Projects/idc/obj/Debug/net10.0/refint/idc.dll
+/home/vinay/Projects/idc/obj/Debug/net10.0/idc.pdb
+/home/vinay/Projects/idc/obj/Debug/net10.0/idc.genruntimeconfig.cache
+/home/vinay/Projects/idc/obj/Debug/net10.0/ref/idc.dll
