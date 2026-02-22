@@ -6,8 +6,13 @@ class Program
 {
 	static void Main()
 	{
-		double[] cashFlows = {4000, 4000, 4000, 4000, 4000};
-		double result = IRR.Compute(7, 8, cashFlows, 16000);
-		Console.WriteLine(result);
+		double[] cashFlows = {240000, 160000, 80000, 40000, 40000};
+		double II = 280000;
+		double pbp = PBP.Compute(II, cashFlows);
+		Console.WriteLine("PBP is "+ pbp);
+		double npv = NPV.Compute(II, 10, cashFlows);
+		Console.WriteLine("NPV is " + npv);
+		double pi = PI.Compute(cashFlows, 10, II);
+		Console.WriteLine("PI is " + pi);
 	}
 }
