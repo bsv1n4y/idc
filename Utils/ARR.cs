@@ -3,12 +3,6 @@ namespace Utils
 {
 	public class ARR
 	{
-		public static double Depreciation(double originalInvestment, double scrapValue, int life)
-		{
-			double depreciation = (originalInvestment - scrapValue) / life;
-			return depreciation;
-		}
-
 		public static double Compute(double[] incomeAfterdt, double originalInvestment, double scrapValue,double workingCapital)
 		{
 			double averageIncome;
@@ -29,7 +23,7 @@ namespace Utils
 			double[] incomeAfterdepn = new double[incomeBeforedt.Length];
 			double[] incomeAftertax = new double[incomeBeforedt.Length];
 			double tax;
-			double depreciation = Depreciation(originalInvestment, scrapValue, life);
+			double depreciation = Utils.Depreciation(originalInvestment, scrapValue, life);
 			for(int i=0; i<incomeBeforedt.Length; i++)
 			{
 				incomeAfterdepn[i] = incomeBeforedt[i] - depreciation;
@@ -43,7 +37,7 @@ namespace Utils
 			
 		public static double Compute(double[] incomeBeforetaxAfterdepn, int life, double originalInvestment, double scrapValue, double workingCapital)
 		{
-			double depreciation = Depreciation(originalInvestment, scrapValue, life);
+			double depreciation = Utils.Depreciation(originalInvestment, scrapValue, life);
 			double[] incomeAfterdepn = new double[incomeBeforetaxAfterdepn.Length];
 			for(int i=0; i<incomeBeforetaxAfterdepn.Length; i++)
 			{

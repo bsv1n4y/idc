@@ -6,8 +6,8 @@ class Program
 {
 	static void Main()
 	{
-		double[] income = {90000, 75000, 60000, 50000, 40000};
-		double result = ARR.Compute(income, 5, 400000, 50000, 50000);
+		double[] cashFlows = {4000, 4000, 4000, 4000, 4000};
+		double result = IRR.Compute(7, 8, cashFlows, 16000);
 		Console.WriteLine(result);
 	}
 }
