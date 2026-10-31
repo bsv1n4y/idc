@@ -1,6 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using Utils;
+﻿using Utils;
+using Spectre.Console;
 
 class Program
 {
@@ -13,9 +12,9 @@ class Program
     }
     static int welcomeScreen()
     {
-        Console.WriteLine("[+] Welcome to Investment Decision Planner");
-        Console.WriteLine("[+] Select any method to compute");
-        Console.Write(" 1.PBP\n 2.ARR\n 3.IRR\n 4.PI\n 5.NPV\n 6.Exit \t Enter your choice: ");
+        AnsiConsole.MarkupLine("[green]Welcome to Investment Decision Planner[/]");
+        AnsiConsole.MarkupLine("[red]Select any method to compute[/]");
+        AnsiConsole.Markup("[yellow] 1.PBP\n 2.ARR\n 3.IRR\n 4.PI\n 5.NPV\n[/] [red]6.Exit[/] \t [green]Enter your choice: [/]");
         string choice1 = Console.ReadLine();
         int choice = int.Parse(choice1);
         return choice;
@@ -111,7 +110,7 @@ class Program
                 return result;
                 break;
             case 6:
-                Console.WriteLine("You have selected to exit the app");
+                AnsiConsole.MarkupLine("[red]You have selected to exit the app[/]");
                 Environment.Exit(0);
                 return 0;
                 break;
