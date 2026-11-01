@@ -5,18 +5,25 @@ class Program
 {
     static void Main()
     {
+        while (true)
+        {
         int choice = welcomeScreen();
         double result = methodSelector(choice);
+        AnsiConsole.MarkupLine("[green][[+]] The result is [/]" + result);
         Console.WriteLine();
-        Console.WriteLine("The result is " + result);
+        AnsiConsole.MarkupLine("[red][[+]] Press any key to continue...[/]");
+        Console.ReadKey(intercept: true);
+        Console.Clear();
+        }
     }
     static int welcomeScreen()
     {
-        AnsiConsole.MarkupLine("[green]Welcome to Investment Decision Planner[/]");
+        AnsiConsole.MarkupLine("[green][[+]] Welcome to Investment Decision Planner[/]");
         AnsiConsole.MarkupLine("[red]Select any method to compute[/]");
         AnsiConsole.Markup("[yellow] 1.PBP\n 2.ARR\n 3.IRR\n 4.PI\n 5.NPV\n[/] [red]6.Exit[/] \t [green]Enter your choice: [/]");
         string choice1 = Console.ReadLine();
         int choice = int.Parse(choice1);
+        Console.Clear();
         return choice;
     }
     static double methodSelector(int choice)
@@ -28,18 +35,35 @@ class Program
         switch (choice)
         {
             case 1:
-                Console.WriteLine("You have selected PayBackPeriod");
-                Console.Write("Enter the number of years: ");
+                AnsiConsole.MarkupLine("[red][[+]] You have selected PayBackPeriod[/]");
+                AnsiConsole.Markup("[yellow]Enter the number of years: [/]");
                 year = int.Parse(Console.ReadLine());
-                Console.Write("Enter the value of initial Investment: ");
+                AnsiConsole.Markup("[red][[-]] Is cashflow same for all the years (y/n): [/]");
+                string c = Console.ReadLine();
+                AnsiConsole.Markup("[yellow]Enter the value of initial Investment: [/]");
                 initialInvestment = double.Parse(Console.ReadLine());
-                Console.Write("Enter the cashFlows: ");
-                for (int i = 0; i < year; i++)
+                if (c == "y" || c == "yes")
                 {
-                    cashFlows[i] = double.Parse(Console.ReadLine());
+                  AnsiConsole.Markup("[yellow]Enter the cashflow: [/]");
+                  double s_cashFlow = float.Parse(Console.ReadLine());
+                  result = PBP.Compute(initialInvestment, s_cashFlow);
+                  return result;
                 }
-                result = PBP.Compute(initialInvestment, cashFlows);
-                return result;
+                else if (c == "n" || c == "no")
+                {
+                  AnsiConsole.Markup("[yellow]Enter the cashFlows: [/]");
+                  for (int i = 0; i < year; i++)
+                  {
+                    cashFlows[i] = double.Parse(Console.ReadLine());
+                  }
+                  result = PBP.Compute(initialInvestment, cashFlows);
+                  return result;
+                }
+                else
+                {
+                  AnsiConsole.MarkupLine("[red][[-]] You have entered wrong option, available options are 'y' for yes and 'n' for no[/]");
+                  return -1;
+                }
                 break;
             case 2:
                 Console.WriteLine("You have selected Accounting Rate of Return");
@@ -110,7 +134,7 @@ class Program
                 return result;
                 break;
             case 6:
-                AnsiConsole.MarkupLine("[red]You have selected to exit the app[/]");
+                AnsiConsole.MarkupLine("[red][[-]] You have selected to exit the app[/]");
                 Environment.Exit(0);
                 return 0;
                 break;
