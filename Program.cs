@@ -123,16 +123,16 @@ class Program
                 }
                   break;
             case 3:
-                Console.WriteLine("You have selected Internal Rate of Return");
-                Console.Write("Enter the value for lower trial rate: ");
+                AnsiConsole.MarkupLine("[red][[+]] You have selected Internal Rate of Return[/]");
+                AnsiConsole.Markup("[yellow] Enter the value for lower trial rate: [/]");
                 float ltr = float.Parse(Console.ReadLine());
-                Console.Write("Enter the value of higher trial rate: ");
+                AnsiConsole.Markup("[yellow] Enter the value of higher trial rate: [/]");
                 float htr = float.Parse(Console.ReadLine());
-                Console.Write("Enter the value of original Investment: ");
+                AnsiConsole.Markup("[yellow] Enter the value of original Investment: [/]");
                 initialInvestment = double.Parse(Console.ReadLine());
-                Console.Write("Enter the number of years: ");
+                AnsiConsole.Markup("[yellow] Enter the number of years: [/]");
                 year = int.Parse(Console.ReadLine());
-                Console.Write("Enter the cashFlows: ");
+                AnsiConsole.Markup("[yellow] Enter the cashFlows: [/]");
                 for (int i = 0; i < year; i++)
                 {
                     cashFlows[i] = double.Parse(Console.ReadLine());
@@ -141,14 +141,14 @@ class Program
                 return result;
                 break;
             case 4:
-                Console.WriteLine("You have selected Profitability Index");
-                Console.Write("Enter the value of years: ");
+                AnsiConsole.MarkupLine("[red][[+]] You have selected Profitability Index[/]");
+                AnsiConsole.Markup("[yellow] Enter the value of years: [/]");
                 year = int.Parse(Console.ReadLine());
-                Console.Write("Enter the value for original Investment: ");
+                AnsiConsole.Markup("[yellow] Enter the value for original Investment: [/]");
                 initialInvestment = double.Parse(Console.ReadLine());
-                Console.Write("Enter the value of discount rate: ");
+                AnsiConsole.Markup("[yellow] Enter the value of discount rate: [/]");
                 float discRate = float.Parse(Console.ReadLine());
-                Console.Write("Enter the cash Flows: ");
+                AnsiConsole.Markup("[yellow] Enter the cash Flows: [/]");
                 for (int i = 0; i < year; i++)
                 {
                     cashFlows[i] = double.Parse(Console.ReadLine());
@@ -157,14 +157,14 @@ class Program
                 return result;
                 break;
             case 5:
-                Console.WriteLine("You have selected Net Present Value");
-                Console.Write("Enter the number of years: ");
+                AnsiConsole.MarkupLine("[red][[+]] You have selected Net Present Value[/]");
+                AnsiConsole.Markup("[yellow] Enter the number of years: [/]");
                 year = int.Parse(Console.ReadLine());
-                Console.Write("Enter the value of original Investment: ");
+                AnsiConsole.Markup("[yellow] Enter the value of original Investment: [/]");
                 initialInvestment = double.Parse(Console.ReadLine());
-                Console.Write("Enter the value of discount rate: ");
+                AnsiConsole.Markup("[yellow] Enter the value of discount rate: [/]");
                 float discountRate = float.Parse(Console.ReadLine());
-                Console.Write("Enter the cash Flows: ");
+                AnsiConsole.Markup("[yellow] Enter the cash Flows: [/]");
                 for (int i = 0; i < year; i++)
                 {
                     cashFlows[i] = double.Parse(Console.ReadLine());
