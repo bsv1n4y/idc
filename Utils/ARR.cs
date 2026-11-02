@@ -20,11 +20,11 @@ namespace Utils
 
 		public static double Compute(int year, double[] incomeBeforedt, float taxRate, int life, double originalInvestment, double scrapValue, double workingCapital)
 		{
-			double[] incomeAfterdepn = new double[incomeBeforedt.Length];
-			double[] incomeAftertax = new double[incomeBeforedt.Length];
+			double[] incomeAfterdepn = new double[year];
+			double[] incomeAftertax = new double[year];
 			double tax;
 			double depreciation = Utils.Depreciation(originalInvestment, scrapValue, life);
-			for(int i=0; i<incomeBeforedt.Length; i++)
+			for(int i=0; i<year; i++)
 			{
 				incomeAfterdepn[i] = incomeBeforedt[i] - depreciation;
 				tax = incomeAfterdepn[i] * taxRate / 100;
@@ -38,8 +38,8 @@ namespace Utils
 		public static double Compute(int year, double[] incomeBeforetaxAfterdepn, int life, double originalInvestment, double scrapValue, double workingCapital)
 		{
 			double depreciation = Utils.Depreciation(originalInvestment, scrapValue, life);
-			double[] incomeAfterdepn = new double[incomeBeforetaxAfterdepn.Length];
-			for(int i=0; i<incomeBeforetaxAfterdepn.Length; i++)
+			double[] incomeAfterdepn = new double[year];
+			for(int i=0; i<year; i++)
 			{
 				incomeAfterdepn[i] = incomeBeforetaxAfterdepn[i] - depreciation;
 			}
