@@ -66,23 +66,62 @@ class Program
                 }
                 break;
             case 2:
-                Console.WriteLine("You have selected Accounting Rate of Return");
-                Console.Write("Enter the number of years: ");
+                AnsiConsole.MarkupLine("[red][[+]] You have selected Accounting Rate of Return[/]");
+                AnsiConsole.Markup("[yellow]Enter the number of years: [/]");
                 year = int.Parse(Console.ReadLine());
-                Console.Write("Enter the value of original Investment: ");
+                AnsiConsole.Markup("[yellow]Enter the value of original Investment: [/]");
                 initialInvestment = double.Parse(Console.ReadLine());
-                Console.Write("Enter the value of scrap value: ");
+                AnsiConsole.Markup("[yellow]Enter the value of scrap value: [/]");
                 double scrapValue = double.Parse(Console.ReadLine());
-                Console.Write("Enter the value of working capital: ");
+                AnsiConsole.Markup("[yellow]Enter the value of working capital: [/]");
                 double workingCapital = double.Parse(Console.ReadLine());
-                Console.Write("Enter Income after depn and after tax: ");
-                for (int i = 0; i < year; i++)
+                AnsiConsole.MarkupLine("[red][[-]] What is the nature of the income [/]");
+                AnsiConsole.Markup("[yellow] 1.Income after Tax and Depreciation\n 2.Income before Depreciation and Tax\n 3.Income before Tax and after Depreciation\n[/] \t [green]Enter your choice [[Default: 1]]: [/]");
+                string? i_input = Console.ReadLine();
+                string i_choice = string.IsNullOrWhiteSpace(i_input)
+                  ? "1"
+                  : i_input.Trim();
+                int int_choice = int.Parse(i_choice);
+                if (int_choice == 1)
                 {
+                  AnsiConsole.Markup("[yellow]Enter Income after depn and after tax: [/]");
+                  for (int i = 0; i < year; i++)
+                  {
                     cashFlows[i] = double.Parse(Console.ReadLine());
+                  }
+                  result = ARR.Compute(year, cashFlows, initialInvestment, scrapValue, workingCapital);
+                  return result;
+
+                } else if (int_choice == 2)
+                {
+                  AnsiConsole.Markup("[yellow]What is the life of the depreciable asset: [/]");
+                  int life = int.Parse(Console.ReadLine());
+                  AnsiConsole.Markup("[yellow]What is the tax rate: [/]");
+                  float tax = float.Parse(Console.ReadLine());
+                  AnsiConsole.Markup("[yellow]Enter Income before depn and tax: [/]");
+                  for (int i = 0; i < year; i++)
+                  {
+                    cashFlows[i] = double.Parse(Console.ReadLine());
+                  }
+                  result = ARR.Compute(year, cashFlows, tax, life, initialInvestment, scrapValue, workingCapital);
+                  return result;
+                } else if (int_choice == 3)
+                {
+                    AnsiConsole.Markup("[yellow]What is the life of the depreciable asset: [/]");
+                    int life = int.Parse(Console.ReadLine());
+                    AnsiConsole.Markup("[yellow]Enter Income before depn and after tax: [/]");
+                    for (int i = 0; i < year; i++)
+                    {
+                      cashFlows[i] = double.Parse(Console.ReadLine());
+                    }
+                    result = ARR.Compute(year, cashFlows, life, initialInvestment, scrapValue, workingCapital);
+                    return result;
+                } else
+                {
+                  AnsiConsole.MarkupLine("[red][[-]] You have entered wrong option available options are '1', '2' and '3'");
+                  return -1;
                 }
-                result = ARR.Compute(cashFlows, initialInvestment, scrapValue, workingCapital);
-                return result;
-                break;
+                  break;
             case 3:
                 Console.WriteLine("You have selected Internal Rate of Return");
                 Console.Write("Enter the value for lower trial rate: ");

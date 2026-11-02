@@ -3,7 +3,7 @@ namespace Utils
 {
 	public class ARR
 	{
-		public static double Compute(double[] incomeAfterdt, double originalInvestment, double scrapValue,double workingCapital)
+		public static double Compute(int year, double[] incomeAfterdt, double originalInvestment, double scrapValue,double workingCapital)
 		{
 			double averageIncome;
 			double totalIncome = 0;
@@ -11,14 +11,14 @@ namespace Utils
 			{
 				totalIncome += incomeAfterdt[i];
 			}
-			averageIncome = totalIncome / (incomeAfterdt.Length);
+			averageIncome = totalIncome / year;
 			double averageInvestment = ((originalInvestment - scrapValue) / 2 ) + workingCapital + scrapValue;
 			double result = averageIncome / averageInvestment * 100;
 			result = Math.Round(result, 2);
 			return result;
 		}
 
-		public static double Compute(double[] incomeBeforedt, double taxRate, int life, double originalInvestment, double scrapValue, double workingCapital)
+		public static double Compute(int year, double[] incomeBeforedt, float taxRate, int life, double originalInvestment, double scrapValue, double workingCapital)
 		{
 			double[] incomeAfterdepn = new double[incomeBeforedt.Length];
 			double[] incomeAftertax = new double[incomeBeforedt.Length];
@@ -30,12 +30,12 @@ namespace Utils
 				tax = incomeAfterdepn[i] * taxRate / 100;
 				incomeAftertax[i] = incomeAfterdepn[i] - tax;
 			}
-			double result = Compute(incomeAftertax, originalInvestment, scrapValue, workingCapital);
+			double result = Compute(year, incomeAftertax, originalInvestment, scrapValue, workingCapital);
 			return result;
 		}
 
 			
-		public static double Compute(double[] incomeBeforetaxAfterdepn, int life, double originalInvestment, double scrapValue, double workingCapital)
+		public static double Compute(int year, double[] incomeBeforetaxAfterdepn, int life, double originalInvestment, double scrapValue, double workingCapital)
 		{
 			double depreciation = Utils.Depreciation(originalInvestment, scrapValue, life);
 			double[] incomeAfterdepn = new double[incomeBeforetaxAfterdepn.Length];
@@ -43,7 +43,7 @@ namespace Utils
 			{
 				incomeAfterdepn[i] = incomeBeforetaxAfterdepn[i] - depreciation;
 			}
-			double result = Compute(incomeAfterdepn, originalInvestment, scrapValue, workingCapital);
+			double result = Compute(year, incomeAfterdepn, originalInvestment, scrapValue, workingCapital);
 			return result;
 		}
 	}
