@@ -1,0 +1,2 @@
+/home/vinay/Projects/idc/publish/win-x64/idc.pdb
+/home/vinay/Projects/idc/publish/win-x64/idc.exe

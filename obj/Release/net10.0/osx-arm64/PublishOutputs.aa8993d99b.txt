@@ -1,0 +1,2 @@
+/home/vinay/Projects/idc/publish/osx-arm64/idc.pdb
+/home/vinay/Projects/idc/publish/osx-arm64/idc
